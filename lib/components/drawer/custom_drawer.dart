@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:projetos/main.dart';
 
 class CustomDrawer extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -40,7 +38,7 @@ class CustomDrawer extends StatelessWidget {
                 //  Navigator.of(context).pushNamed(AppRoutes.ProdutosListagem);
               },
             ),
-         //   const Divider(),
+            //   const Divider(),
             // Theme(
             //   data: Theme.of(context).copyWith(
             //     colorScheme:
@@ -73,7 +71,7 @@ class CustomDrawer extends StatelessWidget {
             const Divider(),
             const ListTile(
               leading: Icon(Icons.exit_to_app),
-              title:  Text('Sair'),
+              title: Text('Sair'),
               // onTap: () async {
               //   await _usuarioProvider?.logout();
               //

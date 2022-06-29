@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:projetos/components/base.service.dart';
 import 'package:projetos/components/card/custom-card.dart';
@@ -12,7 +10,7 @@ import 'package:projetos/models/cachorro-model.dart';
 import 'package:projetos/models/gato-model.dart';
 import 'package:projetos/pages/home/widgets/listagem-cats-widget.dart';
 import 'package:projetos/pages/home/widgets/listagem-dogs-widget.dart';
-import 'package:projetos/shared/formatacao_Texto.dart';
+import 'package:projetos/shared/formatacao-texto/formatacao_Texto.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,23 +24,13 @@ class _HomePageState extends State<HomePage> {
   List<CachorroModel>? cachorros = [];
   List<GatoModel>? gatos = [];
 
-  List names = ['jerry', 'mark', 'john'];
-
-// generates a new Random object
-  final _random = Random();
-
-// generate a random index based on the list length
-// and use it to retrieve the element
-
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) => _iniciarDadosPets());
     super.initState();
-    var element = names[_random.nextInt(names.length)];
-    print(element);
   }
 
-  //
+
   void _iniciarDadosPets() async {
     _carregarDadosPets();
   }
@@ -54,7 +42,6 @@ class _HomePageState extends State<HomePage> {
 
     List<CachorroModel>? cachorrosApi = await this._api.getCachorros();
     List<GatoModel>? gatosApi = await this._api.getGatos();
-    GatoModel? gatoApi = await this._api.getGato();
 
     setState(
       () {
@@ -139,25 +126,20 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // TextTheme _textTheme = Theme.of(context).textTheme;
-    // bool isDark = Theme.of(context).brightness == Brightness.dark;
-
-
-
-    final randomNumberGenerator = Random();
-    final randomBoolean = randomNumberGenerator.nextBool();
-    print(randomBoolean);
+    final Duration disableAfterClick;
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         title: textoAppBar(
-          'Pet',
+          'Pet Adoption',
         ),
         actions: [
           Switch(
             value: themeManager.themeMode == ThemeMode.dark,
             onChanged: (newValue) {
-              themeManager.toggleTheme(newValue);
+              setState(() {
+                themeManager.toggleTheme(newValue);
+              });
             },
           )
         ],
@@ -166,31 +148,11 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [tabBarWidget(context)],
+          children: [
+            tabBarWidget(context),
+          ],
         ),
       ),
     );
   }
-}
-
-class BoolRandom {
-  bool? geraBoleano;
-  BoolRandom({this.geraBoleano});
-}
-
-class Fake {
-  static List<BoolRandom> getSomeValues = [
-    BoolRandom(geraBoleano: false),
-    BoolRandom(geraBoleano: true),
-    BoolRandom(geraBoleano: false),
-    BoolRandom(geraBoleano: true),
-  ];
-}
-
-List<BoolRandom> shuffle(List<BoolRandom> items, int item) {
-  var random = new Random();
-
-  items.shuffle();
-
-  return items.sublist(0, item);
 }

@@ -6,12 +6,11 @@ late BuildContext _context;
 
 ThemeData lightTheme = ThemeData(
     appBarTheme: AppBarTheme(
-      centerTitle: true,
-      elevation: 1,
-      backgroundColor: Colors.green.shade100,
-      iconTheme: IconThemeData(color: Colors.black),
-      titleTextStyle: TextStyle(color: Colors.black)
-    ),
+        centerTitle: true,
+        elevation: 1,
+        backgroundColor: Colors.green.shade100,
+        iconTheme: IconThemeData(color: Colors.black),
+        titleTextStyle: TextStyle(color: Colors.black)),
     // brightness: Brightness.light,
     textTheme: TextTheme(
       bodyText1: TextStyle(),
@@ -20,8 +19,13 @@ ThemeData lightTheme = ThemeData(
       bodyColor: Colors.black,
       displayColor: Colors.black,
     ),
-    //canvasColor: Colors.redAccent,
-   // backgroundColor: Colors.blue,
+    drawerTheme:DrawerThemeData(
+        backgroundColor: Colors.white
+
+    ),
+
+
+    backgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.grey.shade100,
     primaryColor: COLOR_PRIMARY,
     floatingActionButtonTheme:
@@ -32,8 +36,8 @@ ThemeData lightTheme = ThemeData(
                 EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
             shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0))),
-            backgroundColor: MaterialStateProperty.all<Color>(COLOR_ACCENT))),
+                    borderRadius: BorderRadius.circular(40.0))),
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.green))),
     inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
@@ -49,6 +53,13 @@ ThemeData darkTheme = ThemeData(
   ),
   brightness: Brightness.dark,
   accentColor: Colors.white,
+
+
+  drawerTheme:DrawerThemeData(
+      backgroundColor: Colors.black
+
+  ),
+  backgroundColor: Colors.black26,
   switchTheme: SwitchThemeData(
     trackColor: MaterialStateProperty.all<Color>(Colors.grey),
     thumbColor: MaterialStateProperty.all<Color>(Colors.white),

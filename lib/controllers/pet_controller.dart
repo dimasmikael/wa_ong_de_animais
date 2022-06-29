@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:projetos/models/cachorro-model.dart';
 import 'package:http/http.dart' as http;
 import 'package:projetos/models/gato-model.dart';
-import 'package:projetos/shared/constants.dart';
+import 'package:projetos/shared/constants/constants.dart';
 
 class PetController {
   Future<List<CachorroModel>> getCachorros() async {

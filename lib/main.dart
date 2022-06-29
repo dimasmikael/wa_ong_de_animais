@@ -41,7 +41,11 @@ class _MyAppState extends State<MyApp> {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeManager.themeMode,
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/':(context) => const HomePage(),
+      },
+
     );
   }
 }

@@ -1,16 +1,14 @@
-import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:projetos/components/placeHolder/placeHolderImage.dart';
 import 'package:projetos/components/size-config/size-config.dart';
+import 'package:projetos/main.dart';
 import 'package:projetos/models/cachorro-model.dart';
-import 'package:projetos/pages/detalhes-pet/detalhes-cachorro-page.dart';
-import 'package:projetos/pages/home/home_page.dart';
-import 'package:projetos/shared/formatacao_Texto.dart';
+import 'package:projetos/pages/detalhes-pet/detalhes-cachorro/detalhes-cachorro-page.dart';
+import 'package:projetos/shared/formatacao-texto/formatacao_Texto.dart';
 
-class  ListagemDogsWidget extends StatefulWidget {
+class ListagemDogsWidget extends StatelessWidget {
   const ListagemDogsWidget(this.cachorros, this.context, {Key? key})
       : super(key: key);
 
@@ -18,30 +16,9 @@ class  ListagemDogsWidget extends StatefulWidget {
   final BuildContext context;
 
 
-  @override
-  _ListagemDogsWidgetState createState() => _ListagemDogsWidgetState();
-}
-
-class _ListagemDogsWidgetState extends State<ListagemDogsWidget> {
-
   List<Widget> _listaCachorros() {
-    List<BoolRandom> itemOfList = shuffle(Fake.getSomeValues, 2);
-
-   itemOfList.forEach((e) => print(e.geraBoleano));
-
-
- // String ww = itemOfList.forEach(
- //          (e) =>e.geraBoleano);
-    List names = ['jerry','mark','john'];
-    final randomNumberGenerator = Random();
-    final randomBoolean = randomNumberGenerator.nextBool();
-
-    Color _favIconColor = Colors.grey;
-    bool _isTap = false;
-    return widget. cachorros!.map(
+    return cachorros!.map(
       (CachorroModel cachorro) {
-
-        cachorro.teste==itemOfList;
         return Padding(
           padding: const EdgeInsets.only(top: 10),
           child: GestureDetector(
@@ -56,26 +33,16 @@ class _ListagemDogsWidgetState extends State<ListagemDogsWidget> {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: const BorderRadius.only(
-                  topLeft: const Radius.circular(20),
-                  topRight: const Radius.circular(20),
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
                 ),
                 border: Border.all(
                   color: Colors.grey.shade300,
                   width: 1,
                 ),
               ),
-              margin: const EdgeInsets.only(
-                  right: //index != null
-                      // ?
-                      10,
-                  //  : 0,
-                  left: //index != null
-                      // ?
-                      10,
-                  //  : 0,
-                  bottom: 16),
+              margin: const EdgeInsets.only(right: 10, left: 10, bottom: 16),
               width: SizeConfig.blockSizeHorizontal! * 70,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -103,49 +70,28 @@ class _ListagemDogsWidgetState extends State<ListagemDogsWidget> {
                                 Image.network(carregarImagem),
                           ),
                         ),
-
-                  ]),),
-
+                      ],
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          decoration: BoxDecoration(
-                            color:
-                                // pet.condition == "Adoption" ?
-                                Colors.orange[100],
-                            // : pet.condition ==
-                            // "Disappear" ? Colors.red[100] : Colors
-                            // .blue[100],
-                            borderRadius: const BorderRadius.all(
-                              const Radius.circular(10),
+                          decoration: const BoxDecoration(
+
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
                             ),
                           ),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 4),
-                          child:
-                          Text
-                            (
-                              cachorro.teste.toString()??""
-                          )
-                          // Text(
-                          //
-                          //   element .toString()??"hh",
-                          //  // "cachorro?.lifeSpan??",
-                          //   style: const TextStyle(
-                          //     color:
-                          //         //    pet.condition == "Adoption" ?
-                          //         Colors.orange,
-                          //     // : pet.condition == "Disappear"
-                          //     // ? Colors.red
-                          //     // : Colors.blue
-                          //
-                          //     fontWeight: FontWeight.bold,
-                          //     fontSize: 12,
-                          //   ),
-                          // ),
+                          child: cachorro?.lifeSpan == null ||
+                                  cachorro?.lifeSpan == ""
+                              ? const SizedBox()
+                              : textoListagemVidaUtilPet(
+                                  cachorro?.lifeSpan ?? ""),
                         ),
                         const SizedBox(
                           height: 8,

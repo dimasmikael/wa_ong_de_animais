@@ -1,9 +1,6 @@
 import 'package:projetos/pages/home/home_page.dart';
 
 class CachorroModel {
-
-
-
   Weight? weight;
   Weight? height;
   int? id;
@@ -15,8 +12,6 @@ class CachorroModel {
   String? origin;
   String? referenceImageId;
   ImagePet? image;
-
-  List<BoolRandom>? teste;
 
   CachorroModel(
       {this.weight,
