@@ -1,1 +1,4 @@
-const BASE_URL = "api.thedogapi.com";
+class Constants {
+  static const BASE_URL_DOG = "https://api.thedogapi.com";
+  static const BASE_URL_CAT= "https://api.thecatapi.com";
+}
