@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 30.0),
             Container(
-              height: SizeConfig.blockSizeVertical! * 9,
+              height: SizeConfig.blockSizeVertical! * 10.5,
               alignment: Alignment.centerLeft,
               child: SizedBox.expand(
                 child: ValueListenableBuilder<bool>(
