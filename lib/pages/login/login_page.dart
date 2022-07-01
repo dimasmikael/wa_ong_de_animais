@@ -18,56 +18,33 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(
-          (_) => _init(),
+      (_) => _init(),
     );
-    // Future.delayed(const Duration(seconds: 3)).then((_) =>
-    //     Navigator
-    //         .of(context)
-    //         .pushReplacement(new MaterialPageRoute(builder: (BuildContext context) {
-    //       return new LoginPage();
-    //     })));
 
-    //  Navigator.of(context).pushReplacementNamed('/login-page'));
     super.initState();
   }
 
-
-
   void _init() async {
-    teste();
+    verificaUsuarioLogado();
   }
-    // var box = await Hive.openBox('token');
-    // String? tokenStored = box.get('token');
-    // if (tokenStored != null) {
-    //   Navigator.pushReplacementNamed(_context, '/home');
-    // }
 
-  //
-  //   Future.wait(
-  //       //     [PrefsService.isAuth(), Future.delayed(const Duration(seconds: 1))],
-  //       //   ).then((value) async => value[0]
-  //       //       ?  await Navigator.of(context)
-  //       //       .pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
-  //       //     return const HomePage();
-  //       //   }))
-  // }
-
-  void teste(){
+  void verificaUsuarioLogado() {
     Future.wait(
-      [PrefsService.isAuth(), Future.delayed(const Duration(milliseconds: 1))],
+      [
+        PrefsService.isAuth(),
+        Future.delayed(
+          const Duration(milliseconds: 1),
+        ),
+      ],
     ).then((value) async => value[0]
-        ?  await Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
-      return const HomePage();
-    }))
-        : null
-
-    // await Navigator.of(context)
-    //     .pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
-    //   return LoginPage();
-    // }))
-    );
-
+        ? await Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return const HomePage();
+              },
+            ),
+          )
+        : null);
   }
 
   @override
@@ -80,201 +57,118 @@ class _LoginPageState extends State<LoginPage> {
         child: ListView(
           children: <Widget>[
             SizedBox(
-              width: 128,
-              height: 128,
-              child: Image.asset("assets/imagens/logo.png"),
+              height: SizeConfig.safeBlockVertical! * 20,
+              width: SizeConfig.safeBlockHorizontal! * 20,
+              child: Image.asset("assets/imagens/dogs-ani.jpg"),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            TextFormField(
-              // autofocus: true,
+            const SizedBox(height: 40.0),
+            TextField(
+              style: TextStyle(
+                  fontSize: SizeConfig.safeBlockHorizontal! * 4,
+                  color: Colors.black),
+              keyboardType: TextInputType.number,
               onChanged: _controller.setLogin,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                labelText: "E-mail",
-                labelStyle: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                ),
-              ),
-              style: const TextStyle(fontSize: 20),
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(16.0),
+                  prefixIcon: Container(
+                      padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+                      margin: const EdgeInsets.only(right: 8.0),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30.0),
+                          bottomLeft: Radius.circular(30.0),
+                          topRight: Radius.circular(30.0),
+                          bottomRight: Radius.circular(10.0),
+                        ),
+                      ),
+                      child: const Icon(
+                        Icons.person,
+                        color: Colors.lightGreen,
+                      )),
+                  hintText: "Entre com seu e-mail",
+                  hintStyle:
+                      TextStyle(fontSize: SizeConfig.blockSizeHorizontal! * 4),
+                  labelStyle:
+                      TextStyle(fontSize: SizeConfig.blockSizeHorizontal! * 4),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      borderSide: BorderSide.none),
+                  filled: true,
+                  fillColor: Colors.greenAccent),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            TextFormField(
-              onChanged: _controller.setSenha,
-              // autofocus: true,
-              keyboardType: TextInputType.text,
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: "Senha",
-                labelStyle: TextStyle(
-                  color: Colors.black38,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                ),
-              ),
-              style: const TextStyle(fontSize: 20),
-            ),
-            // Container(
-            //   height: 40,
-            //   alignment: Alignment.centerRight,
-            //   child: FlatButton(
-            //     child: Text(
-            //       "Recuperar Senha",
-            //       textAlign: TextAlign.right,
-            //     ),
-            //     onPressed: () {
-            //       Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) => ResetPasswordPage(),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // ),
-            const SizedBox(
-              height: 40,
-            ),
+            const SizedBox(height: 30.0),
             Container(
-              height: 60,
+              height: SizeConfig.blockSizeVertical! * 11,
               alignment: Alignment.centerLeft,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  stops: [0.3, 1],
-                  colors: [
-                    Color(0xFFF58524),
-                    Color(0XFFF92B7F),
-                  ],
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5),
-                ),
-              ),
               child: SizedBox.expand(
-                  child: ValueListenableBuilder<bool>(
-                      valueListenable: _controller.inLoader,
-                      builder: (_, inLoader, __) => inLoader
-                          ? Center(
-                              child: SizedBox(
-                                  width: 30,
-                                  height: 30,
-                                  child: CircularProgressIndicator()))
-                          : FlatButton(
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  const Text(
-                                    "Login",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  Container(
-                                    child: SizedBox(
-                                      child: Image.asset(
-                                          "assets/imagens/bone.png"),
-                                      height: 28,
-                                      width: 28,
-                                    ),
-                                  )
-                                ],
+                child: ValueListenableBuilder<bool>(
+                  valueListenable: _controller.inLoader,
+                  builder: (_, inLoader, __) => inLoader
+                      ? const Center(
+                          child: SizedBox(
+                            width: 30,
+                            height: 30,
+                            child: CircularProgressIndicator(),
+                          ),
+                        )
+                      : ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.all(20.0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                            primary: Colors.green,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              const Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                                textAlign: TextAlign.left,
                               ),
-                              onPressed: () {
-                                _controller.auth().then((result) {
-                                  if (result) {
-                                    print("Sucesso");
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => const HomePage(),
-                                      ),
-                                    );
-                                  } else {
-                                    BaseService.alert.error(
-                                      context,
-                                      "Falha ao realizar login, verifique seu e-mail",
-                                      TextStyle(
-                                        fontSize:
-                                            SizeConfig.safeBlockHorizontal! *
-                                                3.4,
-                                      ),
-                                    );
-                                    print("Erro");
-                                  }
-                                });
+                              SizedBox(
+                                height: SizeConfig.safeBlockVertical! * 5,
+                                width: SizeConfig.safeBlockHorizontal! * 5,
+                                child:
+                                    Image.asset("assets/imagens/paw-128.png"),
+                              )
+                            ],
+                          ),
+                          onPressed: () {
+                            _controller.auth().then(
+                              (result) {
+                                if (result) {
+                                  print("Sucesso");
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const HomePage(),
+                                    ),
+                                  );
+                                } else {
+                                  BaseService.alert.error(
+                                    context,
+                                    "Falha ao realizar login, verifique seu e-mail",
+                                    TextStyle(
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal! * 3.4,
+                                    ),
+                                  );
+                                  print("Erro");
+                                }
                               },
-                            ))),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 60,
-              alignment: Alignment.centerLeft,
-              decoration: const BoxDecoration(
-                color: Color(0xFF3C5A99),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(5),
-                ),
-              ),
-              child: SizedBox.expand(
-                child: FlatButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      // Text(
-                      //   "Login com Facebook",
-                      //   style: TextStyle(
-                      //     fontWeight: FontWeight.bold,
-                      //     color: Colors.white,
-                      //     fontSize: 20,
-                      //   ),
-                      //   textAlign: TextAlign.left,
-                      // ),
-                      // Container(
-                      //   child: SizedBox(
-                      //     child: Image.asset("assets/fb-icon.png"),
-                      //     height: 28,
-                      //     width: 28,
-                      //   ),
-                      // )
-                    ],
-                  ),
-                  onPressed: () {},
+                            );
+                          },
+                        ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            // Container(
-            //   height: 40,
-            //   child: FlatButton(
-            //     child: Text(
-            //       "Cadastre-se",
-            //       textAlign: TextAlign.center,
-            //     ),
-            //     onPressed: () {
-            //       Navigator.push(
-            //         context,
-            //         MaterialPageRoute(
-            //           builder: (context) => SignupPage(),
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // ),
           ],
         ),
       ),

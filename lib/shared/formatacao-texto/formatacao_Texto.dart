@@ -10,7 +10,7 @@ Widget textoAppBar(String texto) {
       texto,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: GoogleFonts.inter(
+      style: GoogleFonts.roboto(
         fontSize: SizeConfig.safeBlockHorizontal! * 6,
       ),
     ),
@@ -95,7 +95,7 @@ Widget textoDetalhePetNome(String texto) {
 Widget textoDetalhePetOrigem(String texto) {
   return Text(
     texto,
-    maxLines: 1,
+    maxLines: 2,
     style: GoogleFonts.inter(
       fontWeight: FontWeight.bold,
       fontSize: SizeConfig.safeBlockHorizontal! * 4,

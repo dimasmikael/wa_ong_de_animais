@@ -61,20 +61,31 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          primary: themeManager.themeMode == ThemeMode.light &&
-                  _isButtonDisabled == true
-              ? Colors.red
-              : themeManager.themeMode == ThemeMode.light &&
-                      _isButtonDisabled == false
-                  ? Colors.green
-                  : themeManager.themeMode == ThemeMode.dark &&
-                          _isButtonDisabled == true
-                      ? Colors.red.shade300
-                      : Colors.green.shade300),
-      onPressed: _isButtonDisabled ? _disabled : _enabled,
-      child: Text(_isButtonDisabled ? "Cancel" : "Adoption"),
+    SizeConfig().init(context);
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: SizedBox(
+        height: SizeConfig.safeBlockVertical! * 10,
+        width: SizeConfig.safeBlockHorizontal! * 30,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              primary: themeManager.themeMode == ThemeMode.light &&
+                      _isButtonDisabled == true
+                  ? Colors.red
+                  : themeManager.themeMode == ThemeMode.light &&
+                          _isButtonDisabled == false
+                      ? Colors.green
+                      : themeManager.themeMode == ThemeMode.dark &&
+                              _isButtonDisabled == true
+                          ? Colors.red.shade300
+                          : Colors.green.shade300),
+          onPressed: _isButtonDisabled ? _disabled : _enabled,
+          child: Text(
+            _isButtonDisabled ? "Cancel" : "Adoption",
+            style: TextStyle(fontSize: SizeConfig.safeBlockVertical! * 3),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -127,9 +127,22 @@ class _HomePageState extends State<HomePage> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: textoAppBar(
-          'Pet Adoption',
-        ),
+        centerTitle: true,
+        title: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              textoAppBar(
+                'PetAdoption',
+              ),
+              Container(
+                height: SizeConfig.safeBlockVertical! * 5,
+                width: SizeConfig.safeBlockHorizontal! * 5,
+                child: Image.asset(themeManager.themeMode == ThemeMode.dark
+                    ? 'assets/imagens/paw-128.png'
+                    : 'assets/imagens/paw.png'),
+              ),
+            ]),
         actions: [
           Switch(
             value: themeManager.themeMode == ThemeMode.dark,
