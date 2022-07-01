@@ -1,19 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
 import 'package:projeto_pet_adoption_app/components/detalhes-pet/detalhes-pet-widget.dart';
 import 'package:projeto_pet_adoption_app/components/placeHolder/placeHolderImage.dart';
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 import 'package:projeto_pet_adoption_app/models/pet-model.dart';
-import 'package:projeto_pet_adoption_app/pages/detalhes-pet/detalhes-cachorro/detalhes-cachorro-page.dart';
 import 'package:projeto_pet_adoption_app/shared/formatacao-texto/formatacao_Texto.dart';
 
 class ListagemPetsWidget extends StatelessWidget {
   const ListagemPetsWidget(this.pets, this.context, {Key? key})
       : super(key: key);
 
-  final List<PetModel> pets;
+  final List<PetModel>? pets;
   final BuildContext context;
 
   List<Widget> _listaPets() {
@@ -27,9 +25,7 @@ class ListagemPetsWidget extends StatelessWidget {
                 context,
                 PageRouteBuilder(
                   pageBuilder: (context, a, b) =>
-                      DetalhesPetPageWiget
-
-                        (petModel: pets),
+                      DetalhesPetPageWiget(petModel: pets),
                 ),
               );
             },
@@ -88,20 +84,20 @@ class ListagemPetsWidget extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 4),
-                          child: pets?.lifeSpan == null || pets?.lifeSpan == ""
+                          child: pets.lifeSpan == null || pets.lifeSpan == ""
                               ? const SizedBox()
-                              : textoListagemVidaUtilPet(pets?.lifeSpan ?? ""),
+                              : textoListagemVidaUtilPet(pets.lifeSpan ?? ""),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
                         textoListagemNomePet(
-                          pets?.name ?? "",
+                          pets.name ?? "",
                         ),
                         const SizedBox(
                           height: 8,
                         ),
-                        pets?.origin == null || pets?.origin == ""
+                        pets.origin == null || pets.origin == ""
                             ? SizedBox(
                                 height: SizeConfig.safeBlockVertical! * 2.5,
                               )
@@ -116,7 +112,7 @@ class ListagemPetsWidget extends StatelessWidget {
                                     width: 4,
                                   ),
                                   textoListagemOrigemPet(
-                                    pets?.origin ?? "",
+                                    pets.origin ?? "",
                                   ),
                                 ],
                               ),

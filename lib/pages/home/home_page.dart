@@ -7,10 +7,7 @@ import 'package:projeto_pet_adoption_app/components/listagem-pets/listagem-pets-
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 import 'package:projeto_pet_adoption_app/controllers/pet-controller.dart';
 import 'package:projeto_pet_adoption_app/main.dart';
-import 'package:projeto_pet_adoption_app/models/gato-model.dart';
 import 'package:projeto_pet_adoption_app/models/pet-model.dart';
-import 'package:projeto_pet_adoption_app/pages/home/widgets/listagem-cats-widget.dart';
-import 'package:projeto_pet_adoption_app/pages/home/widgets/listagem-dogs-widget.dart';
 import 'package:projeto_pet_adoption_app/shared/formatacao-texto/formatacao_Texto.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final PetController _api = PetController();
   List<PetModel>? cachorros = [];
   List<PetModel>? gatos = [];
 
@@ -31,27 +27,28 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-
   void _iniciarDadosPets() async {
     _carregarDadosPets();
   }
 
   Future<void> _carregarDadosPets() async {
-    // if (!this.paginacao.fim) {
-    //   if (_context != null) ;
-    BaseService.loading.start(this.context);
+    BaseService.loading.start(context);
+    try {
+      List<PetModel>? cachorrosApi = await PetController.getCachorros();
+      List<PetModel>? gatosApi = await PetController.getGatos();
 
-    List<PetModel>? cachorrosApi = await PetController.getCachorros();
-    List<PetModel>? gatosApi = await PetController.getGatos();
+      setState(
+        () {
+          cachorros = cachorrosApi;
+          gatos = gatosApi;
+        },
+      );
 
-    setState(
-      () {
-        cachorros = cachorrosApi;
-        gatos = gatosApi;
-      },
-    );
-
-    BaseService.loading.stop(this.context);
+      BaseService.loading.stop(context);
+    } catch (e) {
+      BaseService.loading.stop(context);
+      print(e);
+    }
   }
 
   Widget cardDog() {
@@ -112,8 +109,8 @@ class _HomePageState extends State<HomePage> {
 
                   child: TabBarView(
                     children: <Widget>[
-                      ListagemPetsWidget((cachorros ?? []), context), ListagemPetsWidget((gatos ?? []), context),
-                    //  ListagemCatsWidget((gatos ?? []), context),
+                      ListagemPetsWidget((cachorros ?? []), context),
+                      ListagemPetsWidget((gatos ?? []), context),
                     ],
                   ),
                 )
@@ -127,7 +124,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final Duration disableAfterClick;
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
@@ -138,9 +134,11 @@ class _HomePageState extends State<HomePage> {
           Switch(
             value: themeManager.themeMode == ThemeMode.dark,
             onChanged: (newValue) {
-              setState(() {
-                themeManager.toggleTheme(newValue);
-              });
+              setState(
+                () {
+                  themeManager.toggleTheme(newValue);
+                },
+              );
             },
           )
         ],

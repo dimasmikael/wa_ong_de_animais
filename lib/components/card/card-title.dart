@@ -15,7 +15,7 @@ class _CardTitleState extends State<CardTitle> {
     return Padding(
         padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
         child: Text(
-          widget?.titulo??"",
+          widget.titulo??"",
           style: TextStyle(fontSize: 20),
         ));
   }

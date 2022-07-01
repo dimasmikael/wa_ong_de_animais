@@ -38,10 +38,10 @@ class DetalhesPetPageWiget extends StatelessWidget {
         border: TableBorder.all(),
         children: [
           _criarLinhaTable('Id, ${petModel?.id.toString() ?? 'N/A'}'),
-          _criarLinhaTable('Name, ${petModel?.name ?? 'N/A'}'),
-          _criarLinhaTable('Weight , ${petModel?.weight ?? 'N/A'}'),
-          _criarLinhaTable('BreedGroupd, ${petModel?.breedGroup ?? 'N/A'}'),
-          _criarLinhaTable('LifeSpan, ${petModel?.lifeSpan ?? 'N/A'}'),
+          _criarLinhaTable('Name, ${petModel!.name ?? 'N/A'}'),
+          _criarLinhaTable('Weight , ${petModel.weight ?? 'N/A'}'),
+          _criarLinhaTable('BreedGroupd, ${petModel.breedGroup ?? 'N/A'}'),
+          _criarLinhaTable('LifeSpan, ${petModel.lifeSpan ?? 'N/A'}'),
         ],
       ),
     );
@@ -133,12 +133,12 @@ class DetalhesPetPageWiget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           textoDetalhePetNome(
-                            petModel?.name ?? "",
+                            petModel.name ?? "",
                           ),
                           const SizedBox(
                             height: 8,
                           ),
-                          petModel?.origin == null || petModel?.origin == ""
+                          petModel.origin == null || petModel.origin == ""
                               ? SizedBox(
                                   height: SizeConfig.safeBlockVertical! * 2.5,
                                 )
@@ -152,7 +152,7 @@ class DetalhesPetPageWiget extends StatelessWidget {
                                       width: 4,
                                     ),
                                     textoDetalhePetOrigem(
-                                      petModel?.origin ?? "",
+                                      petModel.origin ?? "",
                                     ),
                                   ],
                                 ),
@@ -168,9 +168,9 @@ class DetalhesPetPageWiget extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: Row(
                 children: [
-                  buildPetFeature(petModel?.id.toString() ?? '', "Id"),
-                  buildPetFeature(petModel?.lifeSpan ?? '', "Lifespan"),
-                  buildPetFeature('${petModel?.weight ?? ''} Kg', "Weight"),
+                  buildPetFeature(petModel.id.toString() , "Id"),
+                  buildPetFeature(petModel.lifeSpan ?? '', "Lifespan"),
+                  buildPetFeature('${petModel.weight ?? ''} Kg', "Weight"),
                 ],
               ),
             ),

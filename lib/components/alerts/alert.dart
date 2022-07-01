@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Alert {
-  void error(BuildContext context, String text,[TextStyle? textStyle]) {
+  void error(BuildContext context, String text, [TextStyle? textStyle]) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(text),
@@ -19,7 +19,8 @@ class Alert {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          text,style: textStyle,
+          text,
+          style: textStyle,
         ),
         backgroundColor: Colors.green,
         action: SnackBarAction(

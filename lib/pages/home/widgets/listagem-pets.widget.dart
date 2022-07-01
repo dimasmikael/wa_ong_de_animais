@@ -5,7 +5,6 @@ import 'package:projeto_pet_adoption_app/components/detalhes-pet/detalhes-pet-wi
 import 'package:projeto_pet_adoption_app/components/placeHolder/placeHolderImage.dart';
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 import 'package:projeto_pet_adoption_app/models/pet-model.dart';
-import 'package:projeto_pet_adoption_app/pages/detalhes-pet/detalhes-cachorro/detalhes-cachorro-page.dart';
 import 'package:projeto_pet_adoption_app/shared/formatacao-texto/formatacao_Texto.dart';
 
 

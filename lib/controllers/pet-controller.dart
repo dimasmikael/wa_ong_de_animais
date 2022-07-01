@@ -1,12 +1,10 @@
 import 'dart:convert';
-import 'package:projeto_pet_adoption_app/models/gato-model.dart';
 import 'package:projeto_pet_adoption_app/models/pet-model.dart';
 import 'package:projeto_pet_adoption_app/shared/constants/constants.dart';
 import 'package:http/http.dart' as http;
 
-
 class PetController {
- static Future<List<PetModel>> getCachorros() async {
+  static Future<List<PetModel>> getCachorros() async {
     String baseUrl = Constants.BASE_URL_DOG;
     var client = http.Client();
     try {
@@ -15,15 +13,15 @@ class PetController {
 
       var decodedResponse = jsonDecode(response.body) as List;
       List<PetModel> cachorros =
-      decodedResponse.map((e) => PetModel.fromJson(e)).toList();
-      print(cachorros);
+          decodedResponse.map((e) => PetModel.fromJson(e)).toList();
+
       return cachorros;
     } finally {
       client.close();
     }
   }
 
- static Future<List<PetModel>> getGatos() async {
+  static Future<List<PetModel>> getGatos() async {
     String baseUrl = Constants.BASE_URL_CAT;
     var client = http.Client();
     try {
@@ -32,44 +30,11 @@ class PetController {
 
       var decodedResponse = jsonDecode(response.body) as List;
       List<PetModel> gatos =
-      decodedResponse.map((e) => PetModel.fromJson(e)).toList();
-      //  print(gatos);
+          decodedResponse.map((e) => PetModel.fromJson(e)).toList();
+
       return gatos;
     } finally {
       client.close();
     }
-  }
-
-  Future<GatoModel> getGato() async {
-    String baseUrl = Constants.BASE_URL_CAT;
-    var client = http.Client();
-    try {
-      var response = await client.get(
-          Uri.parse('https://api.thecatapi.com/v1/images/search?breed_ids=abys'));
-
-      var decodedResponse = jsonDecode(response.body) as List;
-    GatoModel gato =
-      decodedResponse.map((e) => GatoModel.fromJson(e)).toList().first;
-      //  print(gatos);
-      return gato;
-    } finally {
-      client.close();
-    }
-    //   String baseUrl = Constants.BASE_URL_CAT;
-    //   var client = http.Client();
-    //   try {
-    //     var response = await client.get(
-    //         Uri.parse('https://api.thecatapi.com/v1/images/search?breed_ids=abys'));
-    //
-    //     var decodedResponse = jsonDecode(response.body);
-    //     GatoModel gato =
-    //     decodedResponse.map((e) => GatoModel.fromJson(e[0])) as GatoModel;
-    //      print(gato);
-    //     return gato;
-    //   } finally {
-    //     client.close();
-    //   }
-    // }
-
   }
 }

@@ -16,9 +16,9 @@ dependencies:
   cached_network_image: ^3.2.1
   flutter_spinkit:  ^5.1.0
   google_fonts: ^3.0.1
-  shared_preferences:
-  animated_splash_screen:
-  page_transition: ^2.0.9
+  shared_preferences: ^2.0.15
+  animated_splash_screen: ^1.0.0
+
 
 dev_dependencies:
   flutter_test:

@@ -3,7 +3,6 @@ import 'package:projeto_pet_adoption_app/components/base.service.dart';
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 import 'package:projeto_pet_adoption_app/main.dart';
 
-
 class ButtonAdoptionWidget extends StatefulWidget {
   const ButtonAdoptionWidget({Key? key}) : super(key: key);
 
@@ -15,6 +14,7 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
   @override
   void initState() {
     _isButtonDisabled = false;
+    super.initState();
   }
 
   late bool _isButtonDisabled;
@@ -46,15 +46,6 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
   }
 
   Color? colorButton() {
-    // if (themeManager.themeMode == ThemeMode.dark && _isButtonDisabled == true) {
-    //   setState(() {
-    //     ThemeData.dark().backgroundColor;
-    //   });
-    // } else {
-    //   setState(() {
-    //     Colors.yellow;
-    //   });
-    // }
     if (themeManager.themeMode == ThemeMode.light &&
         _isButtonDisabled == true) {
       setState(() {
@@ -65,12 +56,11 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
         Colors.red;
       });
     }
+    return null;
   }
 
   @override
   Widget build(BuildContext context) {
-    print(_isButtonDisabled);
-    print(themeManager.themeMode);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           primary: themeManager.themeMode == ThemeMode.light &&
@@ -83,8 +73,8 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
                           _isButtonDisabled == true
                       ? Colors.red.shade300
                       : Colors.green.shade300),
-      child: Text(_isButtonDisabled ? "Cancel" : "Adoption"),
       onPressed: _isButtonDisabled ? _disabled : _enabled,
+      child: Text(_isButtonDisabled ? "Cancel" : "Adoption"),
     );
   }
 }
