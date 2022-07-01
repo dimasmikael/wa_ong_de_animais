@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projetos/main.dart';
-import 'package:projetos/pages/login/login_page.dart';
-import 'package:projetos/services/prefs-service.dart';
+import 'package:projeto_pet_adoption_app/pages/login/login_page.dart';
+import 'package:projeto_pet_adoption_app/services/prefs-service.dart';
+
 
 class CustomDrawer extends StatelessWidget {
   @override

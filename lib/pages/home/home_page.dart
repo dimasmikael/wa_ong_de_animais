@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:projetos/components/base.service.dart';
-import 'package:projetos/components/card/custom-card.dart';
-import 'package:projetos/components/container/custom-container-home.dart';
-import 'package:projetos/components/drawer/custom_drawer.dart';
-import 'package:projetos/components/size-config/size-config.dart';
-import 'package:projetos/controllers/pet-controller.dart';
-import 'package:projetos/main.dart';
-import 'package:projetos/models/cachorro-model.dart';
-import 'package:projetos/models/gato-model.dart';
-import 'package:projetos/pages/home/widgets/listagem-cats-widget.dart';
-import 'package:projetos/pages/home/widgets/listagem-dogs-widget.dart';
-import 'package:projetos/shared/formatacao-texto/formatacao_Texto.dart';
+import 'package:projeto_pet_adoption_app/components/base.service.dart';
+import 'package:projeto_pet_adoption_app/components/card/custom-card.dart';
+import 'package:projeto_pet_adoption_app/components/container/custom-container-home.dart';
+import 'package:projeto_pet_adoption_app/components/drawer/custom_drawer.dart';
+import 'package:projeto_pet_adoption_app/components/listagem-pets/listagem-pets-widget.dart';
+import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
+import 'package:projeto_pet_adoption_app/controllers/pet-controller.dart';
+import 'package:projeto_pet_adoption_app/main.dart';
+import 'package:projeto_pet_adoption_app/models/gato-model.dart';
+import 'package:projeto_pet_adoption_app/models/pet-model.dart';
+import 'package:projeto_pet_adoption_app/pages/home/widgets/listagem-cats-widget.dart';
+import 'package:projeto_pet_adoption_app/pages/home/widgets/listagem-dogs-widget.dart';
+import 'package:projeto_pet_adoption_app/shared/formatacao-texto/formatacao_Texto.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,8 +22,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final PetController _api = PetController();
-  List<CachorroModel>? cachorros = [];
-  List<GatoModel>? gatos = [];
+  List<PetModel>? cachorros = [];
+  List<PetModel>? gatos = [];
 
   @override
   void initState() {
@@ -40,8 +41,8 @@ class _HomePageState extends State<HomePage> {
     //   if (_context != null) ;
     BaseService.loading.start(this.context);
 
-    List<CachorroModel>? cachorrosApi = await PetController.getCachorros();
-    List<GatoModel>? gatosApi = await PetController.getGatos();
+    List<PetModel>? cachorrosApi = await PetController.getCachorros();
+    List<PetModel>? gatosApi = await PetController.getGatos();
 
     setState(
       () {
@@ -111,8 +112,8 @@ class _HomePageState extends State<HomePage> {
 
                   child: TabBarView(
                     children: <Widget>[
-                      ListagemDogsWidget((cachorros ?? []), context),
-                      ListagemCatsWidget((gatos ?? []), context),
+                      ListagemPetsWidget((cachorros ?? []), context), ListagemPetsWidget((gatos ?? []), context),
+                    //  ListagemCatsWidget((gatos ?? []), context),
                     ],
                   ),
                 )

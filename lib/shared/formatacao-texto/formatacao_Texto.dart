@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projetos/components/size-config/size-config.dart';
+import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
+
 
 Widget textoAppBar(String texto) {
   return Align(

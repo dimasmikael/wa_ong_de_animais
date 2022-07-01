@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projetos/pages/home/splash-page.dart';
-import 'package:projetos/shared/theme/theme_manager.dart';
+import 'package:projeto_pet_adoption_app/pages/home/splash-page.dart';
+import 'package:projeto_pet_adoption_app/shared/theme/theme_manager.dart';
 import 'shared/theme/theme_constants.dart';
 
 void main() async {

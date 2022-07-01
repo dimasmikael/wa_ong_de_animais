@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projetos/components/size-config/size-config.dart';
-import 'package:projetos/main.dart';
+import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
+import 'package:projeto_pet_adoption_app/main.dart';
 
 class RandomAvatarPersonWidget extends StatelessWidget {
   const RandomAvatarPersonWidget({Key? key}) : super(key: key);

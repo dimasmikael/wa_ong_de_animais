@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
-import 'package:projetos/models/usuario-model.dart';
-import 'package:projetos/services/prefs-service.dart';
 import 'package:http/http.dart' as http;
-import 'package:projetos/shared/constants/constants.dart';
+import 'package:projeto_pet_adoption_app/services/prefs-service.dart';
+import 'package:projeto_pet_adoption_app/shared/constants/constants.dart';
+
 
 class LoginController {
 

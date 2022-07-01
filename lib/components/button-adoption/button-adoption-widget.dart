@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projetos/components/base.service.dart';
-import 'package:projetos/components/size-config/size-config.dart';
-import 'package:projetos/main.dart';
+import 'package:projeto_pet_adoption_app/components/base.service.dart';
+import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
+import 'package:projeto_pet_adoption_app/main.dart';
+
 
 class ButtonAdoptionWidget extends StatefulWidget {
   const ButtonAdoptionWidget({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projetos/components/base.service.dart';
-import 'package:projetos/components/size-config/size-config.dart';
-import 'package:projetos/controllers/login-controller.dart';
-import 'package:projetos/pages/home/home_page.dart';
-import 'package:projetos/services/prefs-service.dart';
+import 'package:projeto_pet_adoption_app/components/base.service.dart';
+import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
+import 'package:projeto_pet_adoption_app/controllers/login-controller.dart';
+import 'package:projeto_pet_adoption_app/pages/home/home_page.dart';
+import 'package:projeto_pet_adoption_app/services/prefs-service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                                   } else {
                                     BaseService.alert.error(
                                       context,
-                                      "Falha ao realizar login, verifique login e senha",
+                                      "Falha ao realizar login, verifique seu e-mail",
                                       TextStyle(
                                         fontSize:
                                             SizeConfig.safeBlockHorizontal! *
