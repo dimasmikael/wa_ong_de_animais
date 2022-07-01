@@ -11,7 +11,7 @@ A aplicação consiste em uma listagem de pets para adoção, aonde é possível
 ver as suas informações.
 Na parte do login, após validar  o e-mail com sucesso e fechar e abrir novamente o app, o usuário 
 fica persistido na memória interna do device.
-No appbar da home, é possível alternar entre os tem
+No appbar da home, é possível alternar entre os temas light e dark.
 
 
 ## Layout mobile
@@ -24,7 +24,7 @@ No appbar da home, é possível alternar entre os tem
 # Tecnologias utilizadas
 
 As seguintes ferramentas foram usadas na construção do projeto:
-### Pacotes e ferramentas utilzadas
+### Pacotes e ferramentas utilizadas
 <table>
   <tr>
     <td>Flutter</td>
