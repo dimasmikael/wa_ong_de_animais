@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 
-
 Widget textoAppBar(String texto) {
   return Align(
     alignment: Alignment.center,
@@ -138,17 +137,81 @@ Widget textoTabelaPetRow(String texto) {
 }
 
 Widget textoDetalhePetInformation(String texto) {
-  return
-    Padding(
-      padding: EdgeInsets.only(top: 10,bottom: 10,left: 20),child:
+  return Padding(
+    padding: EdgeInsets.only(top: 10, bottom: 10, left: 20),
+    child: Text(
+      texto,
+      maxLines: 1,
+      style: GoogleFonts.inter(
+        fontWeight: FontWeight.bold,
+        fontSize: SizeConfig.safeBlockHorizontal! * 6,
+      ),
+    ),
+  );
+}
 
-    Text(
+Widget textoButtonAdoption(String texto) {
+  return Text(
     texto,
     maxLines: 1,
     style: GoogleFonts.inter(
       fontWeight: FontWeight.bold,
       fontSize: SizeConfig.safeBlockHorizontal! * 6,
+    ),
+  );
+}
 
-    ), ),
+Widget textoAlert(String texto) {
+  return Text(
+    texto,
+    maxLines: 1,
+    style: TextStyle(
+      fontSize: SizeConfig.safeBlockHorizontal! * 3.5,
+    ),
+  );
+}
+
+Widget textoAvatarRandom(String texto) {
+  return Text(
+    texto,
+    maxLines: 1,
+    style: TextStyle(
+      fontSize: SizeConfig.safeBlockHorizontal! * 4,
+    ),
+  );
+}
+
+Widget textoAvatarRandomPosted(String texto) {
+  return Text(
+    texto,
+    maxLines: 1,
+    style: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: SizeConfig.safeBlockHorizontal! * 3,
+    ),
+  );
+}
+
+Widget textoContactButton(String texto) {
+  return Text(
+    texto,
+    maxLines: 1,
+    style: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: SizeConfig.safeBlockHorizontal! * 4,
+    ),
+  );
+}
+
+Widget textoLoginButton(String texto) {
+  return Text(
+    textAlign: TextAlign.left,
+    texto,
+    maxLines: 1,
+    style: TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.bold,
+      fontSize: SizeConfig.safeBlockHorizontal! * 5,
+    ),
   );
 }

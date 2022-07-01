@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 
-
 class CustomContainerHome extends StatelessWidget {
   const CustomContainerHome({
     Key? key,

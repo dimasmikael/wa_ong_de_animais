@@ -5,36 +5,30 @@ const COLOR_ACCENT = Colors.amberAccent;
 late BuildContext _context;
 
 ThemeData lightTheme = ThemeData(
-
     appBarTheme: AppBarTheme(
         centerTitle: true,
         elevation: 1,
         backgroundColor: Colors.green.shade100,
-        iconTheme: IconThemeData(color: Colors.black),
-        titleTextStyle: TextStyle(color: Colors.black)),
+        iconTheme: const IconThemeData(color: Colors.black),
+        titleTextStyle: const TextStyle(color: Colors.black)),
     // brightness: Brightness.light,
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyText1: TextStyle(),
       bodyText2: TextStyle(),
     ).apply(
       bodyColor: Colors.black,
       displayColor: Colors.black,
     ),
-    drawerTheme:DrawerThemeData(
-        backgroundColor: Colors.white
-
-    ),
-
-
+    drawerTheme: const DrawerThemeData(backgroundColor: Colors.white),
     backgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.grey.shade100,
     primaryColor: COLOR_PRIMARY,
     floatingActionButtonTheme:
-        FloatingActionButtonThemeData(backgroundColor: COLOR_ACCENT),
+        const FloatingActionButtonThemeData(backgroundColor: COLOR_ACCENT),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
+                const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
             shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40.0))),
@@ -47,19 +41,14 @@ ThemeData lightTheme = ThemeData(
         fillColor: Colors.grey.withOpacity(0.1)));
 
 ThemeData darkTheme = ThemeData(
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     centerTitle: true,
     elevation: 1,
     backgroundColor: Colors.black45,
   ),
   brightness: Brightness.dark,
   accentColor: Colors.white,
-
-
-  drawerTheme:DrawerThemeData(
-      backgroundColor: Colors.black
-
-  ),
+  drawerTheme: const DrawerThemeData(backgroundColor: Colors.black),
   backgroundColor: Colors.black26,
   switchTheme: SwitchThemeData(
     trackColor: MaterialStateProperty.all<Color>(Colors.grey),
@@ -74,7 +63,7 @@ ThemeData darkTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
+              const EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0)),
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0))),

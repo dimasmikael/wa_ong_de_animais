@@ -5,8 +5,8 @@ import 'alerts/alert.dart';
 import 'loading/loading.dart';
 
 abstract class BaseService {
-  static Alert alert = new Alert();
-  static Loading loading = new Loading();
+  static Alert alert = Alert();
+  static Loading loading = Loading();
 
   static setDefaultNavigationAndStatusBar() {
     SystemChrome.setSystemUIOverlayStyle(

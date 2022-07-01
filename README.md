@@ -3,16 +3,20 @@
 
 # Sobre o projeto
 
-
-PetAdoption é uma aplicação  mobile, construída para o desafio Warrior,  em um processo seletivo da  empresa WaProject.
-Esta aplicativo consome as seguintes apis para a informações dos pets: https://thedogapi.com/ e https://thecatapi.com/.
-A aplicação consiste em uma listagem de pets para adoção, aonde é possível clicar na foto do  pet e ver as suas informações.
-Na parte do login, após validar  o e-mail com sucesso e fechar e abrir novamente o app, o usuario fica persistido na memória interna do device.
+PetAdoption é uma aplicação  mobile, construída para o desafio Warrior,  em um processo seletivo da
+empresa WaProject.
+Esta aplicativo consome as seguintes apis para a informações dos pets: https://thedogapi.com/ 
+e https://thecatapi.com/.
+A aplicação consiste em uma listagem de pets para adoção, aonde é possível clicar na foto do  pet e
+ver as suas informações.
+Na parte do login, após validar  o e-mail com sucesso e fechar e abrir novamente o app, o usuário 
+fica persistido na memória interna do device.
 No appbar da home, é possível alternar entre os tem
 
 
 ## Layout mobile
-![Mobile 1](https://github.com/dimasmikael/wa_ong_de_animais/blob/master/assets/imagens_app/login.png) ![Mobile 2](https://github.com/dimasmikael/wa_ong_de_animais/blob/master/assets/imagens_app/home.png)
+![Mobile 1](https://github.com/dimasmikael/wa_ong_de_animais/blob/master/assets/imagens_app/login.png) 
+![Mobile 2](https://github.com/dimasmikael/wa_ong_de_animais/blob/master/assets/imagens_app/home.png)
 ![Mobile 2](https://github.com/dimasmikael/wa_ong_de_animais/blob/master/assets/imagens_app/menu.png)
 ![Mobile 4](https://github.com/dimasmikael/wa_ong_de_animais/blob/master/assets/imagens_app/detalhespet.png)
 
@@ -51,7 +55,7 @@ Baixe ou clone este repositório usando o link abaixo:
 
 ```
 https://github.com/dimasmikael/wa_ong_de_animais.git
-```
+
 
 **Passo 2:**
 
@@ -69,6 +73,8 @@ flutter pub get
 Execute o seguinte comando no console para executar o projeto:
 flutter run
 
+```
+```
 # Login no projeto
 Para logar no projeto é necessário apenas fazer a validação do e-mail.É feita uma requisição http em https://jsonplaceholder.typicode.com, e é criado uma lista de e-mail, nos quais pode ser utilizados:
  [Sincere@april.biz, Shanna@melissa.tv, Nathan@yesenia.net, Julianne.OConner@kory.org, Lucio_Hettinger@annie.ca, Karley_Dach@jasper.info, Telly.Hoeger@billy.biz, Sherwood@rosamond.me, Chaim_McDermott@dana.io, Rey.Padberg@karina.biz]
@@ -76,4 +82,4 @@ Para logar no projeto é necessário apenas fazer a validação do e-mail.É fei
 # Autor
 Dimas Mikael
 www.linkedin.com/in/dimasmikaelsouza
-
+```

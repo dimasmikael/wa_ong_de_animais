@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 import 'package:projeto_pet_adoption_app/main.dart';
+import 'package:projeto_pet_adoption_app/shared/formatacao-texto/formatacao_Texto.dart';
 
 class RandomAvatarPersonWidget extends StatelessWidget {
   const RandomAvatarPersonWidget({Key? key}) : super(key: key);
@@ -17,7 +18,6 @@ class RandomAvatarPersonWidget extends StatelessWidget {
                 height: SizeConfig.safeBlockVertical! * 11,
                 width: SizeConfig.safeBlockHorizontal! * 11,
                 decoration: BoxDecoration(
-                  //  color: Colors.white,
                   shape: BoxShape.circle,
                   border: Border.all(
                     width: 3,
@@ -27,12 +27,11 @@ class RandomAvatarPersonWidget extends StatelessWidget {
                     image: NetworkImage("https://i.pravatar.cc/300"),
                     fit: BoxFit.cover,
                   ),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                      //   color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 3,
                       blurRadius: 5,
-                      offset: const Offset(0, 0),
+                      offset: Offset(0, 0),
                     ),
                   ],
                 ),
@@ -43,23 +42,14 @@ class RandomAvatarPersonWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  textoAvatarRandomPosted(
                     "Posted by",
-                    style: TextStyle(
-                      //   color: Colors.grey[600],
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
                   ),
                   const SizedBox(
                     height: 4,
                   ),
-                  Text(
-                    "Nannie Barker",
-                    style: TextStyle(
-                      //  color: Colors.grey[600],
-                      fontSize: 14,
-                    ),
+                  textoAvatarRandom(
+                    "Alex",
                   ),
                 ],
               ),
@@ -81,15 +71,9 @@ class RandomAvatarPersonWidget extends StatelessWidget {
                   offset: const Offset(0, 0),
                 ),
               ],
-              // color: Colors.blue[300],
             ),
-            child: const Text(
+            child: textoContactButton(
               "Contact Me",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                // color: Colors.white,
-              ),
             ),
           ),
         ],

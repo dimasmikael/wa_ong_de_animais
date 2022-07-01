@@ -34,8 +34,6 @@ flutter:
   assets:
     - assets/imagens/cat.png
     - assets/imagens/dog.png
-    - assets/imagens/bone.png
-    - assets/imagens/logo.png
     - assets/imagens/dogsanimated.png
     - assets/imagens/paw.png
     - assets/imagens/paw-128.png

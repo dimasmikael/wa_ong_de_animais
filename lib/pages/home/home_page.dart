@@ -18,12 +18,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   List<PetModel>? cachorros = [];
   List<PetModel>? gatos = [];
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) => _iniciarDadosPets());
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _iniciarDadosPets(),
+    );
     super.initState();
   }
 
@@ -89,7 +92,7 @@ class _HomePageState extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           textoHomeCategoria(
-            'Categoria',
+            'Category',
           ),
           DefaultTabController(
             length: 2, // length of tabs
@@ -104,9 +107,7 @@ class _HomePageState extends State<HomePage> {
                   tabs: [cardDog(), cardCat()],
                 ),
                 SizedBox(
-                  height: SizeConfig.safeBlockHorizontal! *
-                      100, //height of TabBarView
-
+                  height: SizeConfig.safeBlockHorizontal! * 100,
                   child: TabBarView(
                     children: <Widget>[
                       ListagemPetsWidget((cachorros ?? []), context),
@@ -126,23 +127,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.menu,
+            size: SizeConfig.safeBlockVertical! * 4,
+          ), // change this size and style
+          onPressed: () => _scaffoldKey.currentState!.openDrawer(),
+        ),
         centerTitle: true,
         title: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              textoAppBar(
-                'PetAdoption',
-              ),
-              Container(
-                height: SizeConfig.safeBlockVertical! * 5,
-                width: SizeConfig.safeBlockHorizontal! * 5,
-                child: Image.asset(themeManager.themeMode == ThemeMode.dark
-                    ? 'assets/imagens/paw-128.png'
-                    : 'assets/imagens/paw.png'),
-              ),
-            ]),
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            textoAppBar(
+              'PetAdoption',
+            ),
+            SizedBox(
+              height: SizeConfig.safeBlockVertical! * 5,
+              width: SizeConfig.safeBlockHorizontal! * 5,
+              child: Image.asset(themeManager.themeMode == ThemeMode.dark
+                  ? 'assets/imagens/paw-128.png'
+                  : 'assets/imagens/paw.png'),
+            ),
+          ],
+        ),
         actions: [
           Switch(
             value: themeManager.themeMode == ThemeMode.dark,

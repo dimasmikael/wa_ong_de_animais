@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:projeto_pet_adoption_app/components/card/card-content.dart';
 import 'package:projeto_pet_adoption_app/components/card/card-title.dart';
 
-
 class CustomCard extends StatefulWidget {
   final String? titulo;
   final Widget? content;

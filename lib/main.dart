@@ -40,13 +40,7 @@ class _MyAppState extends State<MyApp> {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeManager.themeMode,
-      // initialRoute: '/splash',
       home: const SplashPage(),
-      // routes: {
-      //   '/splash': (context) => const SplashPage(),
-      //   '/': (context) => const HomePage(),
-      //   '/login-page': (context) => const LoginPage(),
-      // },
     );
   }
 }

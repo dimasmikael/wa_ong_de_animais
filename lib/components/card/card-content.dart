@@ -12,6 +12,6 @@ class CardContent extends StatefulWidget {
 class _CardContentState extends State<CardContent> {
   @override
   Widget build(BuildContext context) {
-    return  Padding(padding: EdgeInsets.all(10), child: widget.content);
+    return Padding(padding: const EdgeInsets.all(10), child: widget.content);
   }
 }

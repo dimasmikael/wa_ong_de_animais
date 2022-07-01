@@ -50,7 +50,7 @@ class DetalhesPetPageWiget extends StatelessWidget {
   buildPetFeature(String value, String feature) {
     return Expanded(
       child: Container(
-        height: 70,
+        height: SizeConfig.safeBlockVertical! * 11,
         padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
@@ -124,57 +124,57 @@ class DetalhesPetPageWiget extends StatelessWidget {
             ),
             Row(
               children: [
-                Expanded(child:
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          textoDetalhePetNome(
-                            petModel.name ?? "",
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          petModel.origin == null || petModel.origin == ""
-                              ? SizedBox(
-                                  height: SizeConfig.safeBlockVertical! * 2.5,
-                                )
-                              : Row(
-                                  children: [
-                                    Icon(
-                                      Icons.location_on,
-                                      size: SizeConfig.safeBlockHorizontal! * 6,
-                                    ),
-                                    const SizedBox(
-                                      width: 4,
-                                    ),
-                                    textoDetalhePetOrigem(
-                                      petModel.origin ?? "",
-                                    ),
-                                  ],
-                                ),
-                        ],
-                      ),
-                    ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            textoDetalhePetNome(
+                              petModel.name ?? "",
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            petModel.origin == null || petModel.origin == ""
+                                ? SizedBox(
+                                    height: SizeConfig.safeBlockVertical! * 2.5,
+                                  )
+                                : Row(
+                                    children: [
+                                      Icon(
+                                        Icons.location_on,
+                                        size:
+                                            SizeConfig.safeBlockHorizontal! * 6,
+                                      ),
+                                      const SizedBox(
+                                        width: 4,
+                                      ),
+                                      textoDetalhePetOrigem(
+                                        petModel.origin ?? "",
+                                      ),
+                                    ],
+                                  ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),     ),
-             //   const Expanded(child:
-
-            //    ),
+                ),
               ],
             ),
-            ButtonAdoptionWidget(),
+            const ButtonAdoptionWidget(),
             Padding(
               padding: const EdgeInsets.all(8),
               child: Row(
                 children: [
-                  buildPetFeature(petModel.id.toString() , "Id"),
+                  buildPetFeature(petModel.id.toString(), "Id"),
                   buildPetFeature(petModel.lifeSpan ?? '', "Lifespan"),
-                  buildPetFeature('${petModel.weight?.metric ?? ''} Kg', "Weight"),
+                  buildPetFeature(
+                      '${petModel.weight?.metric ?? ''} Kg', "Weight"),
                 ],
               ),
             ),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_pet_adoption_app/shared/formatacao-texto/formatacao_Texto.dart';
 
 class Alert {
   void error(BuildContext context, String text, [TextStyle? textStyle]) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(text),
+        content: textoAlert(text),
         backgroundColor: Colors.red,
         action: SnackBarAction(
           label: "",
@@ -18,9 +19,8 @@ class Alert {
   void success(BuildContext context, String text, [TextStyle? textStyle]) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
+        content: textoAlert(
           text,
-          style: textStyle,
         ),
         backgroundColor: Colors.green,
         action: SnackBarAction(

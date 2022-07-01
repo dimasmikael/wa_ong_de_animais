@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_pet_adoption_app/components/base.service.dart';
 import 'package:projeto_pet_adoption_app/components/size-config/size-config.dart';
 import 'package:projeto_pet_adoption_app/main.dart';
+import 'package:projeto_pet_adoption_app/shared/formatacao-texto/formatacao_Texto.dart';
 
 class ButtonAdoptionWidget extends StatefulWidget {
   const ButtonAdoptionWidget({Key? key}) : super(key: key);
@@ -48,13 +49,17 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
   Color? colorButton() {
     if (themeManager.themeMode == ThemeMode.light &&
         _isButtonDisabled == true) {
-      setState(() {
-        ThemeData.light().backgroundColor;
-      });
+      setState(
+        () {
+          ThemeData.light().backgroundColor;
+        },
+      );
     } else {
-      setState(() {
-        Colors.red;
-      });
+      setState(
+        () {
+          Colors.red;
+        },
+      );
     }
     return null;
   }
@@ -80,9 +85,8 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
                           ? Colors.red.shade300
                           : Colors.green.shade300),
           onPressed: _isButtonDisabled ? _disabled : _enabled,
-          child: Text(
+          child: textoButtonAdoption(
             _isButtonDisabled ? "Cancel" : "Adoption",
-            style: TextStyle(fontSize: SizeConfig.safeBlockVertical! * 3),
           ),
         ),
       ),

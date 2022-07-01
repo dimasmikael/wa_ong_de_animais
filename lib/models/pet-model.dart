@@ -13,22 +13,22 @@ class PetModel {
 
   PetModel(
       {this.weight,
-        this.height,
-        this.id,
-        this.name,
-        this.bredFor,
-        this.breedGroup,
-        this.lifeSpan,
-        this.temperament,
-        this.origin,
-        this.referenceImageId,
-        this.image});
+      this.height,
+      this.id,
+      this.name,
+      this.bredFor,
+      this.breedGroup,
+      this.lifeSpan,
+      this.temperament,
+      this.origin,
+      this.referenceImageId,
+      this.image});
 
   PetModel.fromJson(Map<String, dynamic> json) {
     weight =
-    json['weight'] != null ? new Weight.fromJson(json['weight']) : null;
+        json['weight'] != null ? Weight.fromJson(json['weight']) : null;
     height =
-    json['height'] != null ? new Weight.fromJson(json['height']) : null;
+        json['height'] != null ? Weight.fromJson(json['height']) : null;
     id = json['id'];
     name = json['name'];
     bredFor = json['bred_for'];
@@ -37,27 +37,27 @@ class PetModel {
     temperament = json['temperament'];
     origin = json['origin'];
     referenceImageId = json['reference_image_id'];
-    image = json['image'] != null ? new ImagePet.fromJson(json['image']) : null;
+    image = json['image'] != null ? ImagePet.fromJson(json['image']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.weight != null) {
-      data['weight'] = this.weight!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (weight != null) {
+      data['weight'] = weight!.toJson();
     }
-    if (this.height != null) {
-      data['height'] = this.height!.toJson();
+    if (height != null) {
+      data['height'] = height!.toJson();
     }
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['bred_for'] = this.bredFor;
-    data['breed_group'] = this.breedGroup;
-    data['life_span'] = this.lifeSpan;
-    data['temperament'] = this.temperament;
-    data['origin'] = this.origin;
-    data['reference_image_id'] = this.referenceImageId;
-    if (this.image != null) {
-      data['image'] = this.image!.toJson();
+    data['id'] = id;
+    data['name'] = name;
+    data['bred_for'] = bredFor;
+    data['breed_group'] = breedGroup;
+    data['life_span'] = lifeSpan;
+    data['temperament'] = temperament;
+    data['origin'] = origin;
+    data['reference_image_id'] = referenceImageId;
+    if (image != null) {
+      data['image'] = image!.toJson();
     }
     return data;
   }
@@ -75,9 +75,9 @@ class Weight {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['imperial'] = this.imperial;
-    data['metric'] = this.metric;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['imperial'] = imperial;
+    data['metric'] = metric;
     return data;
   }
 }
@@ -98,11 +98,11 @@ class ImagePet {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['width'] = this.width;
-    data['height'] = this.height;
-    data['url'] = this.url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['width'] = width;
+    data['height'] = height;
+    data['url'] = url;
     return data;
   }
 }
