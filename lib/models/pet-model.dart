@@ -10,6 +10,7 @@ class PetModel {
   String? origin;
   String? referenceImageId;
   ImagePet? image;
+ List<PetEmail>? emails;
 
   PetModel(
       {this.weight,
@@ -25,10 +26,8 @@ class PetModel {
       this.image});
 
   PetModel.fromJson(Map<String, dynamic> json) {
-    weight =
-        json['weight'] != null ? Weight.fromJson(json['weight']) : null;
-    height =
-        json['height'] != null ? Weight.fromJson(json['height']) : null;
+    weight = json['weight'] != null ? Weight.fromJson(json['weight']) : null;
+    height = json['height'] != null ? Weight.fromJson(json['height']) : null;
     id = json['id'];
     name = json['name'];
     bredFor = json['bred_for'];
@@ -103,6 +102,23 @@ class ImagePet {
     data['width'] = width;
     data['height'] = height;
     data['url'] = url;
+    return data;
+  }
+}
+
+class PetEmail {
+  List<String>? email;
+
+  PetEmail({this.email});
+
+  PetEmail.fromJson(Map<String, dynamic> json) {
+    email = ['id','id2'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = email;
+
     return data;
   }
 }

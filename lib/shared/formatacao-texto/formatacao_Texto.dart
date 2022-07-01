@@ -108,7 +108,7 @@ Widget textoDetalhePetInfo(String texto) {
     maxLines: 1,
     style: GoogleFonts.inter(
       fontWeight: FontWeight.bold,
-      fontSize: SizeConfig.safeBlockHorizontal! * 3.4,
+      fontSize: SizeConfig.safeBlockHorizontal! * 3,
     ),
   );
 }
@@ -118,7 +118,7 @@ Widget textoDetalhePetInfoTitulo(String texto) {
     texto,
     maxLines: 1,
     style: GoogleFonts.inter(
-      fontSize: SizeConfig.safeBlockHorizontal! * 3.8,
+      fontSize: SizeConfig.safeBlockHorizontal! * 3.5,
     ),
   );
 }
@@ -156,7 +156,7 @@ Widget textoButtonAdoption(String texto) {
     maxLines: 1,
     style: GoogleFonts.inter(
       fontWeight: FontWeight.bold,
-      fontSize: SizeConfig.safeBlockHorizontal! * 6,
+      fontSize: SizeConfig.safeBlockHorizontal! * 5,
     ),
   );
 }
@@ -211,7 +211,7 @@ Widget textoLoginButton(String texto) {
     style: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: SizeConfig.safeBlockHorizontal! * 5,
+      fontSize: SizeConfig.safeBlockHorizontal! * 4.8,
     ),
   );
 }

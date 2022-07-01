@@ -63,14 +63,18 @@ class DetalhesPetPageWiget extends StatelessWidget {
         ),
         child: Column(
           children: [
-            textoDetalhePetInfo(
-              value,
+            Expanded(
+              child: textoDetalhePetInfo(
+                value,
+              ),
             ),
             const SizedBox(
               height: 4,
             ),
-            textoDetalhePetInfoTitulo(
-              feature,
+            Expanded(
+              child: textoDetalhePetInfoTitulo(
+                feature,
+              ),
             ),
           ],
         ),

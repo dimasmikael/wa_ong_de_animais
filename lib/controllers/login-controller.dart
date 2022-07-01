@@ -1,11 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:projeto_pet_adoption_app/models/pet-model.dart';
 import 'package:projeto_pet_adoption_app/services/prefs-service.dart';
 import 'package:projeto_pet_adoption_app/shared/constants/constants.dart';
 
 class LoginController {
   List emails = [];
+
+  PetModel petModel = PetModel();
 
   Future<List<dynamic>> getUsers() async {
     String baseUrl = Constants.BASE_URL_User;
@@ -19,6 +22,7 @@ class LoginController {
           emails.add(element['email']);
         },
       );
+
       return emails;
     } finally {
       client.close();
@@ -48,6 +52,7 @@ class LoginController {
 
     if (emails.contains(_login)) {
       PrefsService.save(_login!);
+
       return true;
     }
     return false;

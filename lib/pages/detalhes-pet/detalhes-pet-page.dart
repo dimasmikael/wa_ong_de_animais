@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_pet_adoption_app/components/detalhes-pet/detalhes-pet-widget.dart';
 import 'package:projeto_pet_adoption_app/models/pet-model.dart';
 
 class DetalhesPetPage extends StatelessWidget {
@@ -7,6 +8,6 @@ class DetalhesPetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DetalhesPetPage(petModel: petModel);
+    return DetalhesPetPageWiget(petModel: petModel);
   }
 }
