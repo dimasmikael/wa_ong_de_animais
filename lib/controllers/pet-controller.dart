@@ -5,7 +5,7 @@ import 'package:projetos/models/gato-model.dart';
 import 'package:projetos/shared/constants/constants.dart';
 
 class PetController {
-  Future<List<CachorroModel>> getCachorros() async {
+ static Future<List<CachorroModel>> getCachorros() async {
     String baseUrl = Constants.BASE_URL_DOG;
     var client = http.Client();
     try {
@@ -22,7 +22,7 @@ class PetController {
     }
   }
 
-  Future<List<GatoModel>> getGatos() async {
+ static Future<List<GatoModel>> getGatos() async {
     String baseUrl = Constants.BASE_URL_CAT;
     var client = http.Client();
     try {

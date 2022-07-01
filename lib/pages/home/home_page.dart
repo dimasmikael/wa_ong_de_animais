@@ -4,7 +4,7 @@ import 'package:projetos/components/card/custom-card.dart';
 import 'package:projetos/components/container/custom-container-home.dart';
 import 'package:projetos/components/drawer/custom_drawer.dart';
 import 'package:projetos/components/size-config/size-config.dart';
-import 'package:projetos/controllers/pet_controller.dart';
+import 'package:projetos/controllers/pet-controller.dart';
 import 'package:projetos/main.dart';
 import 'package:projetos/models/cachorro-model.dart';
 import 'package:projetos/models/gato-model.dart';
@@ -40,8 +40,8 @@ class _HomePageState extends State<HomePage> {
     //   if (_context != null) ;
     BaseService.loading.start(this.context);
 
-    List<CachorroModel>? cachorrosApi = await this._api.getCachorros();
-    List<GatoModel>? gatosApi = await this._api.getGatos();
+    List<CachorroModel>? cachorrosApi = await PetController.getCachorros();
+    List<GatoModel>? gatosApi = await PetController.getGatos();
 
     setState(
       () {

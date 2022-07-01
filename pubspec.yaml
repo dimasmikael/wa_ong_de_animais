@@ -16,10 +16,21 @@ dependencies:
   cached_network_image: ^3.2.1
   flutter_spinkit:  ^5.1.0
   google_fonts: ^3.0.1
+  shared_preferences:
+  animated_splash_screen:
+  page_transition: ^2.0.9
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.9.2"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/imagens/catIcon.png"
+  adaptive_icon_background: '#64bc87'
+  #adaptive_icon_foreground: '#64bc87'
 
   flutter_lints: ^2.0.0
 
@@ -30,3 +41,8 @@ flutter:
   assets:
     - assets/imagens/cat.png
     - assets/imagens/dog.png
+    - assets/imagens/backgroundUI.png
+    - assets/imagens/xing.svg
+    - assets/imagens/bone.png
+    - assets/imagens/logo.png
+    - assets/imagens/dogsanimated.png

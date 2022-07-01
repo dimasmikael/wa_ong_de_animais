@@ -5,6 +5,7 @@ const COLOR_ACCENT = Colors.amberAccent;
 late BuildContext _context;
 
 ThemeData lightTheme = ThemeData(
+
     appBarTheme: AppBarTheme(
         centerTitle: true,
         elevation: 1,

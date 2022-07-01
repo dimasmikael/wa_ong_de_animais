@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projetos/pages/home/home_page.dart';
+import 'package:projetos/pages/home/splash-page.dart';
 import 'package:projetos/shared/theme/theme_manager.dart';
-
 import 'shared/theme/theme_constants.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
 }
 
@@ -41,11 +40,13 @@ class _MyAppState extends State<MyApp> {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: themeManager.themeMode,
-      initialRoute: '/',
-      routes: {
-        '/':(context) => const HomePage(),
-      },
-
+      // initialRoute: '/splash',
+      home: const SplashPage(),
+      // routes: {
+      //   '/splash': (context) => const SplashPage(),
+      //   '/': (context) => const HomePage(),
+      //   '/login-page': (context) => const LoginPage(),
+      // },
     );
   }
 }

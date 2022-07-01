@@ -72,15 +72,16 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
     print(themeManager.themeMode);
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary:
-
-        themeManager.themeMode == ThemeMode.light &&
-                _isButtonDisabled == true
-            ? Colors.red
-            :  themeManager.themeMode == ThemeMode.light &&
-            _isButtonDisabled == false ? Colors.green :themeManager.themeMode == ThemeMode.dark &&
-            _isButtonDisabled == true?Colors.red.shade300:Colors.green.shade300
-      ),
+          primary: themeManager.themeMode == ThemeMode.light &&
+                  _isButtonDisabled == true
+              ? Colors.red
+              : themeManager.themeMode == ThemeMode.light &&
+                      _isButtonDisabled == false
+                  ? Colors.green
+                  : themeManager.themeMode == ThemeMode.dark &&
+                          _isButtonDisabled == true
+                      ? Colors.red.shade300
+                      : Colors.green.shade300),
       child: Text(_isButtonDisabled ? "Cancel" : "Adoption"),
       onPressed: _isButtonDisabled ? _disabled : _enabled,
     );
