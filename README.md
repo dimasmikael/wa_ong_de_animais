@@ -6,7 +6,7 @@
 
 PetAdoption é uma aplicação  mobile, construída para o desafio Warrior,  em um processo seletivo da  empresa WaProject.
 Esta aplicativo consome as seguintes apis para a informações dos pets: https://thedogapi.com/ e https://thecatapi.com/.
-A aplicação consiste em uma listagem de pets para adoção, aonde é possível clicar no animal e ver as suas informações.
+A aplicação consiste em uma listagem de pets para adoção, aonde é possível clicar na foto do  pet e ver as suas informações.
 Na parte do login, após validar  o e-mail com sucesso e fechar e abrir novamente o app, o usuario fica persistido na memória interna do device.
 No appbar da home, é possível alternar entre os tem
 
