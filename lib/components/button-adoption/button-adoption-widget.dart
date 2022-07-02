@@ -70,7 +70,7 @@ class _ButtonAdoptionWidgetState extends State<ButtonAdoptionWidget> {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: SizedBox(
-        height: SizeConfig.safeBlockVertical! * 10,
+        height: SizeConfig.safeBlockVertical! * 12,
         width: SizeConfig.safeBlockHorizontal! * 30,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
