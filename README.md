@@ -80,5 +80,6 @@ Para logar no projeto é necessário apenas fazer a validação do e-mail.É fei
  
 # Autor
 Dimas Mikael
+#Linkedin
 www.linkedin.com/in/dimasmikaelsouza
 ```
