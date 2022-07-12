@@ -53,7 +53,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 Baixe ou clone este repositório usando o link abaixo:
 
-```
+
 https://github.com/dimasmikael/wa_ong_de_animais.git
 
 
@@ -73,7 +73,6 @@ flutter pub get
 Execute o seguinte comando no console para executar o projeto:
 flutter run
 
-```
 ```
 # Login no projeto
 Para logar no projeto é necessário apenas fazer a validação do e-mail.É feita uma requisição http em https://jsonplaceholder.typicode.com, e é criado uma lista de e-mail, nos quais pode ser utilizados:
